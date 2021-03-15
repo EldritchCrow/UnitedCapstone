@@ -1,0 +1,216 @@
+body {
+    margin: 0;
+    width: 100vw;
+    overflow-x: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    background-color: #2976eb;
+    display: flex;
+    justify-content: center;
+}
+
+#header-container {
+    color: #ffffff;
+    width: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header #title {
+    padding: 15px 0;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+header #actions {
+    display: flex;
+}
+
+header #actions .action {
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+#pages {
+    display: flex;
+}
+
+.page {
+    overflow-x: hidden;
+}
+
+.jumbo {
+    width: 100vw;
+    background-color: #28273b;
+    color: #fff;
+}
+
+#home.page {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+#home.page .jumbo {
+    height: 300px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+#home.page .jumbo > * {
+    width: 1000px;
+}
+
+#home.page #home-heading {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#home.page #home-heading .textual h1 {
+    font-size: 2.5em;
+    margin: 0 0 5px 0;
+}
+
+#home.page #home-heading .textual h2 {
+    font-size: 1.8em;
+    margin: 0;
+    font-weight: normal;
+}
+
+#home.page #home-heading .buttons button {
+    display: block;
+    background-color: #26a74c;
+    width: 250px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+#home.page #home-heading .buttons button:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+#home.page #stats {
+    display: flex;
+    justify-content: space-around;
+    font-weight: bold;
+}
+
+#home.page #stats .stat {
+    padding: 10px;
+    margin: 10px;
+}
+
+#home.page #stats .stat:hover {
+    background-color: #ffffff22;
+    border-radius: 5px;
+}
+
+#home.page section {
+    width: 1000px;
+    display: flex;
+    align-items: center;
+}
+
+#home.page section .textual {
+    flex: 1;
+}
+
+#home.page section .textual:first-child {
+    padding-right: 50px;
+}
+
+#home.page section .textual:last-child {
+    padding-left: 50px;
+}
+
+#home.page section .visual img {
+    width: 256px;
+    height: 256px;
+}
+
+#identify.page {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#identify.page section {
+    width: 1000px;
+    display: flex;
+}
+
+#identify.page section #scanner {
+    width: 400px;
+    height: 400px;
+    font-size: 8em;
+    user-select: none;
+    border: 4px dashed #ccc;
+    color: #ccc;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#identify.page section #scan-form {
+    margin-left: 20px;
+    flex: 1;
+}
+
+#identify.page section #scan-form h2 {
+    margin: 0 0 10px 0;
+}
+
+#identify.page section #scan-form .slot:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+#identify.page section #scan-form .slot .label {
+    margin-bottom: 2px;
+}
+
+#identify.page section #scan-form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+}
+
+#identify.page section #scan-form select {
+    width: 100%;
+    padding: 5px;
+}
+
+#identify.page section #scan-form textarea {
+    width: 100%;
+    padding: 10px;
+    resize: none;
+}
+
+#identify.page section #scan-form progress {
+    width: 100%;
+}
+
+#identify.page section #scan-form button {
+    display: block;
+    background-color: #2976eb;
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+}
