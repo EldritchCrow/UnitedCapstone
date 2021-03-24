@@ -1,0 +1,30 @@
+#bag-video {
+    margin: 0;
+    width: 350px;
+    height: 220px;
+    border: 1px solid #000;
+    margin-bottom: 5px;
+}
+
+.field {
+    margin-top: 10px;
+}
+
+.form-label {
+    font-size: 0.75em;
+}
+
+input[type="text"],
+select {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+progress {
+    width: 100%;
+}
+
+#submit {
+    width: 100%;
+    padding: 10px;
+}

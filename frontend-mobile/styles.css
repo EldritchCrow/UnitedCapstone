@@ -1,0 +1,120 @@
+:root {
+    --united-blue: #0033a0;
+    --rhapsody-blue: #0c2340;
+    --atlantic-amethyst: #6244bb;
+    --dusk: #b6b8dc;
+}
+
+body {
+    margin: 0;
+    /* TODO: Use Open Sans */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    color: #fff;
+    background-color: var(--united-blue);
+}
+
+header .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+header .name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+header .menu {
+    width: 24px;
+    height: 24px;
+}
+
+.content {
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h2 {
+    margin: 0;
+}
+
+button {
+    color: #fff;
+    background-color: var(--atlantic-amethyst);
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    font-size: .8em;
+    padding: 5px;
+}
+
+.bag-list {
+    padding: 5px;
+    border: 1px solid #000;
+}
+
+.bag-list .bag {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.bag-list .bag:last-child {
+    margin-bottom: 0;
+}
+
+.bag-list .bag .image {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.bag-list .bag .color {
+    width: 75px;
+    margin-right: 10px;
+}
+
+.bag-list .bag .tag {
+    flex: 1;
+    text-align: right;
+}
+
+.bag-list .bag .arrow {
+    width: 16px;
+    height: 16px;
+    margin-left: 10px;
+}
+
+.form-label {
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid gray;
+}
+
+input:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-appearance: none;
+    border: 2px solid var(--atlantic-amethyst);
+}
+
+select {
+    padding: 10px;
+    border: 2px solid gray;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+select:focus {
+    border: 2px solid var(--atlantic-amethyst);
+}

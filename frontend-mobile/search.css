@@ -1,0 +1,32 @@
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.buttons button {
+    flex: 1;
+    margin: 0;
+}
+
+.buttons button:not(:last-child) {
+    margin-right: 10px;
+}
+
+.form {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+input#dead-simple-search {
+    flex: 3;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.form input#dead-simple-search-submit {
+    flex: 1;
+}
