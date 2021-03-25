@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>United Bag Scanner</title>
+        <script src="q.js" defer></script>
+        <script src="script.js" defer></script>
+        <script src="scan.js" defer></script>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="scan.css">
+    </head>
+    <body>
+        <header>
+            <div class="content">
+                <div class="name">Scan a Bag</div>
+                <img class="menu" src="img/hamburger-white.png">
+            </div>
+        </header>
+        <div class="content">
+            <div class="field">
+                <video id="bag-video" autoplay="true"></video>
+                <button id="capture">Take Snapshot</button>
+            </div>
+            <div class="field">
+                <div class="form-label">Bag Tag</div>
+                <input type="text" placeholder="323ABCD234">
+            </div>
+            <div class="field">
+                <div class="form-label">Bag Type</div>
+                <!-- TODO: Use United Style -->
+                <select>
+                    <option>01 Horizontal Design Hard Shell</option>
+                    <option>02 Upright Design5</option>
+                    <option>03 Horizontal Design Suitcase Non-Expandable</option>
+                    <option>05 Horizontal Design Suitcase Expandable</option>
+                    <option>06 Briefcase</option>
+                    <option>07 Document Case</option>
+                    <option>08 Military Style Bag</option>
+                    <option>09 Plastic / Laundry Bag</option>
+                    <option>10 Box</option>
+                    <option>12 Storage Container</option>
+                    <option>... etc</option>
+                </select>
+            </div>
+            <div class="field">
+                <div class="form-label">Bag Color</div>
+                <select>
+                    <option>WT White</option>
+                    <option>BK Black</option>
+                    <option>GY Grey</option>
+                    <option>BU Blue</option>
+                    <option>PU Purple</option>
+                    <option>RD Red</option>
+                    <option>YW Yellow</option>
+                    <option>BE Beige</option>
+                    <option>BN Brown</option>
+                    <option>GN Green</option>
+                    <option>MC Multi-Colored</option>
+                    <option>PR Pattern</option>
+                </select>
+            </div>
+            <div class="field">
+                <div class="form-label">AI Progress</div>
+                <progress value="33" max="100"></progress> 
+            </div>
+            <div class="field">
+                <button id="submit">Submit</button>
+            </div>
+        </div>
+    </body>
+</html>

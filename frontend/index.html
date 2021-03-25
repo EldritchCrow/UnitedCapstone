@@ -1,9 +1,103 @@
-<!DOCTYPE html>
 <html>
     <head>
-        <title>Placeholder</title>
+        <title>United Baggage</title>
+        <script src="q.js" defer></script>
+        <script src="script.js" defer></script>
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae unde obcaecati rem minima officiis itaque, dicta vel quam quidem esse officia commodi. Atque, excepturi minus minima quae nulla maiores ipsum?
+        <header>
+            <div id="header-container">
+                <div id="title">United Baggage Scanner</div>
+                <div id="actions">
+                    <div class="action">Scan Bags</div>
+                    <div class="action">Search Bags</div>
+                    <div class="action">Login</div>
+                    <div class="action">Sign Up</div>
+                </div>
+            </div>
+        </header>
+        <div id="pages">
+            <div id="home" class="page">
+                <div class="jumbo">
+                    <div id="home-heading">
+                        <div class="textual">
+                            <h1>United Baggage Scanner</h1>
+                            <h2>Scan with confidence</h2>
+                        </div>
+                        <div class="buttons">
+                            <button id="scan-button">Scan a Bag</button>
+                            <button id="search-button">Search Bags</button>
+                        </div>
+                    </div>
+                    <div id="stats">
+                        <div class="stat">Scanned <span id="bags-scanned">1,331</span></div>
+                        <div class="stat">Matching <span id="bags-matching">1,157</span></div>
+                        <div class="stat">Differing <span id="bags-differing">174</span></div>
+                    </div>
+                </div>
+                <section>
+                    <div class="textual">
+                        Scan your bags with confidence with our machine learning algorithms.
+                        Baggage inputs will be processed alongside an artificial intelligence
+                        to catch any blatant errors. The artificial intelligence is continuously
+                        trained to keep up to date with the current incoming bags.
+                    </div>
+                    <div class="visual">
+                        <img src="img/machine-learning-istockphoto.jpeg">
+                    </div>
+                </section>
+                <section>
+                    <div class="visual">
+                        <img src="img/manual-override-indiamart.jpeg">
+                    </div>
+                    <div class="textual">
+                        If your input does not match with the algorithm's, have no fear. Just
+                        double-check your selection and choose the manual override option to
+                        override it. Your choice will be recorded before the algorithm's on the
+                        record. Further, the artificial intelligence's will be kept just in case
+                        it caught something that you didn't.
+                    </div>
+                </section>
+            </div>
+            <div id="identify" class="page">
+                <section>
+                    <div id="scanner">+</div>
+                    <div id="scan-form">
+                        <h2>Bag Scan Information</h2>
+                        <div class="slot">
+                            <div class="label">Bag ID</div>
+                            <input type="text" id="scan-form-bag-id">
+                        </div>
+                        <div class="slot">
+                            <div class="label">Bag Type</div>
+                            <select id="scan-form-bag-type">
+                                <option value="1">Bag Type 1</option>
+                                <option value="2">Bag Type 2</option>
+                                <option value="3">Bag Type 3</option>
+                                <option value="4">Bag Type 4</option>
+                                <option value="5">Bag Type 5</option>
+                                <option value="6">Bag Type 6</option>
+                                <option value="7">Bag Type 7</option>
+                                <option value="8">Bag Type 8</option>
+                                <option value="9">Bag Type 9</option>
+                                <option value="10">Bag Type 10</option>
+                            </select>
+                        </div>
+                        <div class="slot">
+                            <div class="label">Notes</div>
+                            <textarea id="scan-form-notes"></textarea>
+                        </div>
+                        <div class="slot">
+                            <div class="label">AI Scan Progress</div>
+                            <progress id="scan-form-ai-progress" value="33" max="100"></progress>
+                        </div>
+                        <div class="slot">
+                            <button id="scan-form-submit">Submit Bag</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
     </body>
 </html>
