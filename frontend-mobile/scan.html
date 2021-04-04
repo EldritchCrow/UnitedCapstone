@@ -22,46 +22,46 @@
                 <button id="capture">Take Snapshot</button>
             </div>
             <div class="field">
+                <div class="form-label">AI Progress</div>
+                <progress id="ai-progress" value="0" max="100"></progress> 
+            </div>
+            <div class="field">
                 <div class="form-label">Bag Tag</div>
-                <input type="text" placeholder="323ABCD234">
+                <input id="bag-tag" type="text" placeholder="323ABCD234">
             </div>
             <div class="field">
                 <div class="form-label">Bag Type</div>
                 <!-- TODO: Use United Style -->
-                <select>
-                    <option>01 Horizontal Design Hard Shell</option>
-                    <option>02 Upright Design5</option>
-                    <option>03 Horizontal Design Suitcase Non-Expandable</option>
-                    <option>05 Horizontal Design Suitcase Expandable</option>
-                    <option>06 Briefcase</option>
-                    <option>07 Document Case</option>
-                    <option>08 Military Style Bag</option>
-                    <option>09 Plastic / Laundry Bag</option>
-                    <option>10 Box</option>
-                    <option>12 Storage Container</option>
-                    <option>... etc</option>
+                <select id="bag-type">
+                    <option value="01">01 Horizontal Design Hard Shell</option>
+                    <option value="02">02 Upright Design5</option>
+                    <option value="03">03 Horizontal Design Suitcase Non-Expandable</option>
+                    <option value="04">05 Horizontal Design Suitcase Expandable</option>
+                    <option value="05">06 Briefcase</option>
+                    <option value="06">07 Document Case</option>
+                    <option value="07">08 Military Style Bag</option>
+                    <option value="08">09 Plastic / Laundry Bag</option>
+                    <option value="09">10 Box</option>
+                    <option value="10">12 Storage Container</option>
+                    <option value="--">... etc</option>
                 </select>
             </div>
             <div class="field">
                 <div class="form-label">Bag Color</div>
-                <select>
-                    <option>WT White</option>
-                    <option>BK Black</option>
-                    <option>GY Grey</option>
-                    <option>BU Blue</option>
-                    <option>PU Purple</option>
-                    <option>RD Red</option>
-                    <option>YW Yellow</option>
-                    <option>BE Beige</option>
-                    <option>BN Brown</option>
-                    <option>GN Green</option>
-                    <option>MC Multi-Colored</option>
-                    <option>PR Pattern</option>
+                <select id="bag-color">
+                    <option value="WT">WT White</option>
+                    <option value="BK">BK Black</option>
+                    <option value="GY">GY Grey</option>
+                    <option value="BU">BU Blue</option>
+                    <option value="PU">PU Purple</option>
+                    <option value="RD">RD Red</option>
+                    <option value="YW">YW Yellow</option>
+                    <option value="BE">BE Beige</option>
+                    <option value="BN">BN Brown</option>
+                    <option value="GN">GN Green</option>
+                    <option value="MC">MC Multi-Colored</option>
+                    <option value="PR">PR Pattern</option>
                 </select>
-            </div>
-            <div class="field">
-                <div class="form-label">AI Progress</div>
-                <progress value="33" max="100"></progress> 
             </div>
             <div class="field">
                 <button id="submit">Submit</button>
