@@ -49,7 +49,7 @@ $('#capture').addEventListener('click', async () => {
     }
 });
 
-$('#submit').addEventListener('click', () => {
+$('#submit').addEventListener('click', async () => {
     if (snapshotData == null) {
         alert('Missing Bag Snapshot');
         return;
