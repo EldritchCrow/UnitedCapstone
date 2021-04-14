@@ -1,5 +1,10 @@
+// Copyright 2021 Michael Peters (peterm8@rpi.edu)
+// This file was created (and is owned) by Michael Peters (peterm8@rpi.edu)
+// Use, copy, modification, merge, publication, distribution, subliscense,
+// and/or sell-copies of this file are prohibited unless given express consent
+// by the owner of this file.
+
 // Fake (and better) jQuery
-// This file was created (and owned) by Michael Peters
 
 const $ = document.querySelector.bind(document);
 const $$ = function(queryString) { // Because ElementList Objects are cancerous

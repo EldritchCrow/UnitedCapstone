@@ -7,6 +7,8 @@ $('#dead-simple-search-submit').addEventListener('click', async () => {
     //     headers: { 'Content-Type': 'application/json' }
     // });
     // let response = await result.json();
+    // // response = [ tag, image, color, type ]
+    // Random, placeholder way
     let response = [];
     for (let i = 0; i < 5; ++i) {
         let tag = getRandomBagTag();

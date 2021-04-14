@@ -22,29 +22,30 @@ $('#capture').addEventListener('click', async () => {
         aiResponse = null;
         $('#ai-progress').value = 0;
         // We'll figure out the progress bar later, it's probably gonna be hard to implement
-        // let result = await fetch('https://dummy.dummy.dummy/process-snapshot', {
-        //     method: 'POST',
-        //     body: JSON.stringify({ snapshot: snapshotData }), // this is an object, not a list
-        //     headers: { 'Content-Type': 'application/json' }
-        // });
-        // aiResponse = result.json();
-        await new Promise(async (resolve) => {
-            for (let i = 0; i < 5; ++i) {
-                await sleep(100);
-                $('#ai-progress').value = Math.floor(((i + 1) / 5) * 100);
-            }
-            resolve();
+        let result = await fetch('https://427sweywdc.execute-api.us-east-2.amazonaws.com/test/process-snapshot', {
+            method: 'POST',
+            body: JSON.stringify({ snapshot: snapshotData }), // this is an object, not a list
+            headers: { 'Content-Type': 'application/json' }
         });
-        $('#ai-progress').value = 100;
-        aiResponse = {
-            type: '03',
-            color: 'BE'
-        };
+        aiResponse = await result.json();
+        // // Hardcoded Way
+        // await new Promise(async (resolve) => {
+        //     for (let i = 0; i < 5; ++i) {
+        //         await sleep(100);
+        //         $('#ai-progress').value = Math.floor(((i + 1) / 5) * 100);
+        //     }
+        //     resolve();
+        // });
+        // $('#ai-progress').value = 100;
+        // aiResponse = {
+        //     type: '03',
+        //     color: 'BE'
+        // };
         $('#bag-type').value = aiResponse.type;
         $('#bag-color').value = aiResponse.color;
     } catch (e) {
-        alert('failed to process snapshot');
         console.error('failed to process snapshot', e);
+        alert('failed to process snapshot');
     }
 });
 
@@ -64,12 +65,20 @@ $('#submit').addEventListener('click', () => {
         aiType: aiResponse.type,
         aiColor: aiResponse.color
     };
-    // let result = fetch('https://dummy.dummy.dummy/submit-data', {
-    //     method: 'POST',
-    //     body: JSON.stringify(data),
-    //     headers: { 'Content-Type': 'application/json' }
-    // });
-    console.log('submitted scan data', data);
+    console.log('submitting scan data', data);
+    try {
+        let result = await fetch('https://427sweywdc.execute-api.us-east-2.amazonaws.com/test/submit-data', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: { 'Content-Type': 'application/json' }
+        });
+        let response = await result.json();
+        // response = {"aiResponseID": "4254-5139-6923"}
+        console.log('got response from submit-data', response);
+    } catch (e) {
+        console.error('unable to get response from submit data', e);
+        alert('unable to get response from submit data');
+    }
 });
 
 function submit() {
