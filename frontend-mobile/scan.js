@@ -43,6 +43,7 @@ $('#capture').addEventListener('click', async () => {
         // };
         $('#bag-type').value = aiResponse.type;
         $('#bag-color').value = aiResponse.color;
+        alert('Scan complete. Please verify the bag\'s classification and color');
     } catch (e) {
         console.error('failed to process snapshot', e);
         alert('failed to process snapshot');
