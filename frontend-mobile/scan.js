@@ -43,6 +43,8 @@ $('#capture').addEventListener('click', async () => {
         // };
         $('#bag-type').value = aiResponse.type;
         $('#bag-color').value = aiResponse.color;
+        $('#ai-progress').value = 100;
+        alert('Scan complete. Please verify the bag\'s classification and color');
     } catch (e) {
         console.error('failed to process snapshot', e);
         alert('failed to process snapshot');
@@ -54,12 +56,10 @@ $('#submit').addEventListener('click', async () => {
         alert('Missing Bag Snapshot');
         return;
     }
-    let tag = $('#bag-tag').value;
     let type = $('#bag-type').value;
     let color = $('#bag-color').value;
     let data = {
         snapshot: snapshotData,
-        tag,
         type,
         color,
         aiType: aiResponse.type,
@@ -75,6 +75,7 @@ $('#submit').addEventListener('click', async () => {
         let response = await result.json();
         // response = {"aiResponseID": "4254-5139-6923"}
         console.log('got response from submit-data', response);
+        alert('Image uploaded, you may now leave this page');
     } catch (e) {
         console.error('unable to get response from submit data', e);
         alert('unable to get response from submit data');
@@ -87,7 +88,19 @@ function submit() {
 
 async function setupVideo() {
     try {
-        stream = await navigator.mediaDevices.getUserMedia({ video: true });    
+        const devices = await navigator.mediaDevices.enumerateDevices()
+        const environmentCamera = devices.find(
+            device => device.kind === "videoinput" && device.label.includes("facing back")
+        );
+        var constraints = {
+            video: {}
+        }
+        if (environmentCamera) {
+            constraints.video.deviceId = environmentCamera.deviceId
+        } else {
+            constraints.video = true
+        }
+        stream = await navigator.mediaDevices.getUserMedia(constraints);    
         let video = $('#bag-video');
         video.srcObject = stream;
     } catch (err) {
