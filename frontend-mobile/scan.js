@@ -54,12 +54,10 @@ $('#submit').addEventListener('click', async () => {
         alert('Missing Bag Snapshot');
         return;
     }
-    let tag = $('#bag-tag').value;
     let type = $('#bag-type').value;
     let color = $('#bag-color').value;
     let data = {
         snapshot: snapshotData,
-        tag,
         type,
         color,
         aiType: aiResponse.type,
