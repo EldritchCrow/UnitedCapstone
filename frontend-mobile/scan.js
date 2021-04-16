@@ -86,7 +86,19 @@ function submit() {
 
 async function setupVideo() {
     try {
-        stream = await navigator.mediaDevices.getUserMedia({ video: true });    
+        const devices = await navigator.mediaDevices.enumerateDevices()
+        const environmentCamera = devices.find(
+            device => device.kind === "videoinput" && device.label.includes("facing back")
+        );
+        var constraints = {
+            video: {}
+        }
+        if (environmentCamera) {
+            constraints.video.deviceId = environmentCamera.deviceId
+        } else {
+            constraints.video = true
+        }
+        stream = await navigator.mediaDevices.getUserMedia(constraints);    
         let video = $('#bag-video');
         video.srcObject = stream;
     } catch (err) {
