@@ -75,6 +75,7 @@ $('#submit').addEventListener('click', async () => {
         let response = await result.json();
         // response = {"aiResponseID": "4254-5139-6923"}
         console.log('got response from submit-data', response);
+        alert('Image uploaded, you may now leave this page');
     } catch (e) {
         console.error('unable to get response from submit data', e);
         alert('unable to get response from submit data');
