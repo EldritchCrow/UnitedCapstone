@@ -20,7 +20,7 @@ $('#capture').addEventListener('click', async () => {
     snapshotData = canvas.toDataURL('image/png'); // base64 encoded data URI
     try {
         aiResponse = null;
-        $('#ai-progress').value = 0;
+        $('#ai-progress').removeAttr('value').removeAttr('max');
         // We'll figure out the progress bar later, it's probably gonna be hard to implement
         let result = await fetch('https://427sweywdc.execute-api.us-east-2.amazonaws.com/test/process-snapshot', {
             method: 'POST',
@@ -43,7 +43,7 @@ $('#capture').addEventListener('click', async () => {
         // };
         $('#bag-type').value = aiResponse.type;
         $('#bag-color').value = aiResponse.color;
-        $('#ai-progress').value = 100;
+        $('#ai-progress').attr('value', 100).attr('max', 100);
         alert('Scan complete. Please verify the bag\'s classification and color');
     } catch (e) {
         console.error('failed to process snapshot', e);
