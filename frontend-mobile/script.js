@@ -20,6 +20,10 @@ function getRandomBagColor() {
     return bagColors[Math.floor(Math.random() * bagColors.length)];
 }
 
+function getRandomBagType() {
+    return '05 Horizontal Design Suitcase Expandable';
+}
+
 function getRandomBagTag() {
     let t = 'ABCDEF1234567890';
     let s = '';
