@@ -28,3 +28,7 @@ progress {
     width: 100%;
     padding: 10px;
 }
+
+#cycle {
+    float: right;
+}

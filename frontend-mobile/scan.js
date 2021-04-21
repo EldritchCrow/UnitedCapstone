@@ -1,6 +1,7 @@
 let stream = null;
 let snapshotData = null;
 let aiResponse = null;
+let device_idx = 0;
 
 async function sleep(ms) {
     return new Promise((resolve) => {
@@ -84,27 +85,40 @@ $('#submit').addEventListener('click', async () => {
     }
 });
 
+async function incrementDevice() {
+    try {
+        const devices = await navigator.mediaDevices.enumerateDevices()
+        const cameras = devices.filter(
+            device => device.kind === "videoinput"
+        ).map(x => x.deviceId);
+        var constraints = {
+            video: {
+                deviceId: cameras[device_idx]
+            }
+        }
+        device_idx += 1;
+        if(device_idx >= cameras.length) {
+            device_idx = 0;
+        }
+        stream = await navigator.mediaDevices.getUserMedia(constraints);    
+        let video = $('#bag-video');
+        video.srcObject = stream;
+    } catch(err) {
+        console.log(err);
+    }
+}
+
+$('#cycle').addEventListener('click', async () => {
+    incrementDevice();
+});
+
 function submit() {
 
 }
 
 async function setupVideo() {
     try {
-        const devices = await navigator.mediaDevices.enumerateDevices()
-        const environmentCamera = devices.find(
-            device => device.kind === "videoinput" && device.label.includes("facing back")
-        );
-        var constraints = {
-            video: {}
-        }
-        if (environmentCamera) {
-            constraints.video.deviceId = environmentCamera.deviceId
-        } else {
-            constraints.video = true
-        }
-        stream = await navigator.mediaDevices.getUserMedia(constraints);    
-        let video = $('#bag-video');
-        video.srcObject = stream;
+        incrementDevice();
     } catch (err) {
         console.log(err);
         // do error handling later B)
