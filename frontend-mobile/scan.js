@@ -15,8 +15,8 @@ $('#capture').addEventListener('click', async () => {
     video.play();
     video.pause();
     let canvas = document.createElement('canvas');
-    canvas.width = video.clientWidth;
-    canvas.height = video.clientHeight;
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
     canvas.getContext('2d').drawImage(video, 0, 0);
     snapshotData = canvas.toDataURL('image/png'); // base64 encoded data URI
     try {
