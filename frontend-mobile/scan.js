@@ -125,5 +125,12 @@ async function setupVideo() {
     }
 }
 
+document.getElementById("zoom-range").oninput = function(e) {
+    $("#bag-video").style["-webkit-transform"] = "scale(" + $("#zoom-range").value + ")";
+    $("#bag-video").style["-moz-transform"] = "scale(" + $("#zoom-range").value + ")";
+    $("#bag-video").style["-o-transform"] = "scale(" + $("#zoom-range").value + ")";
+    $("#bag-video").style["-ms-transform"] = "scale(" + $("#zoom-range").value + ")";
+};
+
 setupVideo();
 
