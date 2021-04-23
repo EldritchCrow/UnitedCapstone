@@ -32,3 +32,11 @@ progress {
 #cycle {
     float: right;
 }
+
+#video-wrapper {
+    overflow: hidden;
+}
+
+#zoom-range {
+    width: 90%;
+}
