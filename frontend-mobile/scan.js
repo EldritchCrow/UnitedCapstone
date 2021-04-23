@@ -15,9 +15,21 @@ $('#capture').addEventListener('click', async () => {
     video.play();
     video.pause();
     let canvas = document.createElement('canvas');
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
-    canvas.getContext('2d').drawImage(video, 0, 0);
+    var scalefactor = parseFloat($("#zoom-range").value);
+    canvas.width = video.videoWidth / scalefactor;
+    canvas.height = video.videoHeight / scalefactor;
+    var sourceX = (video.videoWidth - canvas.width) / 2;
+    var sourceY = (video.videoHeight - canvas.height) / 2;
+    var sourceW = canvas.width;
+    var sourceH = canvas.height;
+    var destX = 0;
+    var destY = 0;
+    var destW = canvas.width;
+    var destH = canvas.height;
+    canvas.getContext('2d').drawImage(video, sourceX, sourceX,
+                                             sourceW, sourceH,
+                                             destX, destY,
+                                             destW, destH);
     snapshotData = canvas.toDataURL('image/png'); // base64 encoded data URI
     try {
         aiResponse = null;
