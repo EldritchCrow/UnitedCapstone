@@ -30,7 +30,7 @@ $('#capture').addEventListener('click', async () => {
                                              sourceW, sourceH,
                                              destX, destY,
                                              destW, destH);
-    snapshotData = canvas.toDataURL('image/png'); // base64 encoded data URI
+    snapshotData = canvas.toDataURL('image/jpeg'); // base64 encoded data URI
     try {
         aiResponse = null;
         $('#ai-progress').removeAttribute('value');
