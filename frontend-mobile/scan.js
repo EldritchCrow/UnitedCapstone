@@ -74,14 +74,12 @@ $('#submit').addEventListener('click', async () => {
         alert('Missing Bag Snapshot');
         return;
     }
-    let type = $('#bag-type').value;
-    let color = $('#bag-color').value;
     let data = {
         snapshot: snapshotData,
-        type,
-        color,
-        aiType: getAIBagCode($('#bag-type').value),
-        aiColor: $('#bag-color').value,
+        type: getAIBagCode($('#bag-type').value),
+        color: $('#bag-color').value,
+        aiType: aiResponse.type,
+        aiColor: aiResponse.color,
         note: $('#bag-note').value,
     };
     console.log('submitting scan data', data);
