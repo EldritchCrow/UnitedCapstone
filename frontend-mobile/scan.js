@@ -80,7 +80,7 @@ $('#submit').addEventListener('click', async () => {
         snapshot: snapshotData,
         type,
         color,
-        aiType: $('#bag-type').value,
+        aiType: getAIBagCode($('#bag-type').value),
         aiColor: $('#bag-color').value,
         note: $('#bag-note').value,
     };

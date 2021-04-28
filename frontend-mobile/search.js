@@ -3,7 +3,7 @@ $('#search-submit').addEventListener('click', async () => {
     let result = await fetch('https://427sweywdc.execute-api.us-east-2.amazonaws.com/test/dead-simple-search', {
         method: 'POST',
         body: JSON.stringify({
-            aiType: getAIBagCode(iata) //
+            aiType: getAIBagCode(iata)
         }),
         headers: { 'Content-Type': 'application/json' }
     });
