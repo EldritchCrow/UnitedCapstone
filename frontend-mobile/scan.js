@@ -10,7 +10,6 @@ async function sleep(ms) {
 }
 
 $('#capture').addEventListener('click', async () => {
-    // TODO: Make sure the button isn't clicked twice
     let video = $('#bag-video');
     video.play();
     video.pause();
@@ -33,32 +32,36 @@ $('#capture').addEventListener('click', async () => {
     snapshotData = canvas.toDataURL('image/jpeg'); // base64 encoded data URI
     try {
         aiResponse = null;
-        $('#ai-progress').removeAttribute('value');
-        $('#ai-progress').removeAttribute('max');
+        
+        // Takes 16s in the worst case
+        let estimatedTime = 16000;
+        let intervals = 100;
+        let gotResult = false;
+        $('#ai-progress').setAttribute('value', 0);
+        (async () => {
+            for (let i = 0; i < intervals; ++i) {
+                if (gotResult) break;
+                $('#ai-progress').setAttribute('value', Math.floor(i * 100 / intervals));
+                await sleep(estimatedTime / intervals);
+            }
+        })();
+
         // We'll figure out the progress bar later, it's probably gonna be hard to implement
         let result = await fetch('https://427sweywdc.execute-api.us-east-2.amazonaws.com/test/process-snapshot', {
             method: 'POST',
             body: JSON.stringify({ snapshot: snapshotData }), // this is an object, not a list
             headers: { 'Content-Type': 'application/json' }
         });
-        aiResponse = await result.json();
-        // // Hardcoded Way
-        // await new Promise(async (resolve) => {
-        //     for (let i = 0; i < 5; ++i) {
-        //         await sleep(100);
-        //         $('#ai-progress').value = Math.floor(((i + 1) / 5) * 100);
-        //     }
-        //     resolve();
-        // });
-        // $('#ai-progress').value = 100;
         // aiResponse = {
         //     type: '03',
         //     color: 'BE'
         // };
+        aiResponse = await result.json();
+        gotResult = true;
+        $('#ai-progress').setAttribute('value', 100);
         $('#bag-type').value = aiResponse.type;
         $('#bag-color').value = aiResponse.color;
-        $('#ai-progress').setAttribute('value', 100);
-        $('#ai-progress').setAttribute('max', 100);
+
         alert('Scan complete. Please verify the bag\'s classification and color');
     } catch (e) {
         console.error('failed to process snapshot', e);
@@ -77,8 +80,9 @@ $('#submit').addEventListener('click', async () => {
         snapshot: snapshotData,
         type,
         color,
-        aiType: aiResponse.type,
-        aiColor: aiResponse.color
+        aiType: $('#bag-type').value,
+        aiColor: $('#bag-color').value,
+        note: $('#bag-note').value,
     };
     console.log('submitting scan data', data);
     try {
@@ -88,8 +92,8 @@ $('#submit').addEventListener('click', async () => {
             headers: { 'Content-Type': 'application/json' }
         });
         let response = await result.json();
-        // response = {"aiResponseID": "4254-5139-6923"}
-        console.log('got response from submit-data', response);
+        // response = { "aiResponseID": "4254-5139-6923" }
+
         alert('Image uploaded, you may now leave this page');
     } catch (e) {
         console.error('unable to get response from submit data', e);

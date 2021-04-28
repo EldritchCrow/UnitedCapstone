@@ -1,7 +1,7 @@
 for (let i = 0; i < 4; ++i) {
-    $('#scanned-list').appendChild(createRandomBagElement());
+    $('#scanned-list').appendChild(createBagElement());
 }
 
 for (let i = 0; i < 4; ++i) {
-    $('#overrides-list').appendChild(createRandomBagElement());
+    $('#overrides-list').appendChild(createBagElement());
 }

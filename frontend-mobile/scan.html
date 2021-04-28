@@ -17,16 +17,16 @@
             </div>
         </header>
         <div class="content">
-            <div class="field">
-                <img class="menu" src="img/Search.png" width="24px" height="24px">
-                <input type="range" min="1" max="3" value="1" id="zoom-range" step="0.01">
-            </div>
             <div class="field" id="video-wrapper">
                 <video id="bag-video" autoplay="true"></video>
             </div>
             <div class="field">
+                <img class="menu" src="img/Search.png" width="24px" height="24px">
+                <input type="range" min="1" max="3" value="1" id="zoom-range" step="0.01">
+            </div>
+            <div class="field">
                 <button id="capture">Take Snapshot</button>
-                <img id="cycle" src='./img/Change.svg'>
+                <img id="cycle" src='./img/Change.svg' title="Swap Camera">
             </div>
             <div class="field">
                 <div class="form-label">AI Progress</div>
@@ -37,26 +37,26 @@
                 <!-- TODO: Use United Style -->
                 <select id="bag-type">
                     <option value="01">01 Horizontal Design Hard Shell</option>
-                    <option value="02">02 Upright Design5</option>
+                    <option value="02">02 Upright Design</option>
                     <option value="03">03 Horizontal Design Suitcase Non-Expandable</option>
-                    <option value="04">05 Horizontal Design Suitcase Expandable</option>
-                    <option value="05">06 Briefcase</option>
-                    <option value="06">07 Document Case</option>
-                    <option value="07">08 Military Style Bag</option>
-                    <option value="08">09 Plastic / Laundry Bag</option>
-                    <option value="09">10 Box</option>
-                    <option value="10">12 Storage Container</option>
-                    <option value="11">20 Garment Bag/Suit Carrier</option>
-                    <option value="12">22 Upright Design, Soft Material</option>
-                    <option value="13">22D Upright Design, Soft and Hard Materials</option>
-                    <option value="14">22R Upright Design, Hard Material</option>
-                    <option value="15">23 Horizontal Design Suitcase</option>
-                    <option value="16">25 Duffel/Sport Bag</option>
-                    <option value="17">26 Laptop/Overnight Bag</option>
-                    <option value="18">27 Storage Container</option>
-                    <option value="19">28 Matted Woven Bag</option>
-                    <option value="20">29 Backpack/Rucksack</option>
-                    <option value="21">Other Miscellaneous Article</option>
+                    <option value="05">05 Horizontal Design Suitcase Expandable</option>
+                    <option value="06">06 Briefcase</option>
+                    <option value="07">07 Document Case</option>
+                    <option value="08">08 Military Style Bag</option>
+                    <option value="09">09 Plastic / Laundry Bag</option>
+                    <option value="10">10 Box</option>
+                    <option value="12">12 Storage Container</option>
+                    <option value="20">20 Garment Bag/Suit Carrier</option>
+                    <option value="22">22 Upright Design, Soft Material</option>
+                    <option value="22D">22D Upright Design, Soft and Hard Materials</option>
+                    <option value="22R">22R Upright Design, Hard Material</option>
+                    <option value="23">23 Horizontal Design Suitcase</option>
+                    <option value="25">25 Duffel/Sport Bag</option>
+                    <option value="26">26 Laptop/Overnight Bag</option>
+                    <option value="27">27 Storage Container</option>
+                    <option value="28">28 Matted Woven Bag</option>
+                    <option value="29">29 Backpack/Rucksack</option>
+                    <option value="99">99 Other Miscellaneous Article</option>
                 </select>
             </div>
             <div class="field">
@@ -75,6 +75,10 @@
                     <option value="MC">MC Multi-Colored</option>
                     <option value="PR">PR Pattern</option>
                 </select>
+            </div>
+            <div class="field">
+                <div class="form-label">Note</div>
+                <textarea id="bag-note" placeholder="Note"></textarea>
             </div>
             <div class="field">
                 <button id="submit">Submit</button>

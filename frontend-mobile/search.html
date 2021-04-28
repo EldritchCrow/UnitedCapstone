@@ -17,15 +17,33 @@
             </div>
         </header>
         <div class="content">
-            <div class="buttons">
-                <button id="reverse-image-search">Reverse Image Search</button>
-                <button id="advanced-search">Advanced Search</button>
-            </div>
             <div class="form">
-                <input id="dead-simple-search" type="text" placeholder="Dead Simple Search" value="Red">
-                <button id="dead-simple-search-submit">Submit</button>
+                <select id="iata-code">
+                    <option value="01">01 Horizontal Design Hard Shell</option>
+                    <option value="02">02 Upright Design</option>
+                    <option value="03">03 Horizontal Design Suitcase Non-Expandable</option>
+                    <option value="05">05 Horizontal Design Suitcase Expandable</option>
+                    <option value="06">06 Briefcase</option>
+                    <option value="07">07 Document Case</option>
+                    <option value="08">08 Military Style Bag</option>
+                    <option value="09">09 Plastic / Laundry Bag</option>
+                    <option value="10">10 Box</option>
+                    <option value="12">12 Storage Container</option>
+                    <option value="20">20 Garment Bag/Suit Carrier</option>
+                    <option value="22">22 Upright Design, Soft Material</option>
+                    <option value="22D">22D Upright Design, Soft and Hard Materials</option>
+                    <option value="22R">22R Upright Design, Hard Material</option>
+                    <option value="23">23 Horizontal Design Suitcase</option>
+                    <option value="25">25 Duffel/Sport Bag</option>
+                    <option value="26">26 Laptop/Overnight Bag</option>
+                    <option value="27">27 Storage Container</option>
+                    <option value="28">28 Matted Woven Bag</option>
+                    <option value="29">29 Backpack/Rucksack</option>
+                    <option value="99">99 Other Miscellaneous Article</option>
+                </select>
+                <button id="search-submit">Submit</button>
             </div>
-            <div id="search-list" class="bag-list"></div>
+            <div id="search-list" class="bag-grid"></div>
         </div>
     </body>
 </html>
