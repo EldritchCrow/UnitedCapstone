@@ -1,0 +1,25 @@
+const fs = require('fs');
+
+async function main() {
+	let files = await fs.promises.readdir('.');
+	let toRemove = files.filter((file, i) => {
+		return files.slice(0, i).find((otherFile) => {
+			return otherFile.slice(0, 4) == file.slice(0, 4);
+		});
+	});
+	let toRename = files.filter((file) => {
+		return !toRemove.includes(file);
+	});
+	console.log('files', files);
+	console.log('toRemove', toRemove);
+	console.log('toRename', toRename);
+	for (let remove of toRemove) {
+		console.log('removing', remove);
+		await fs.promises.rm(remove);
+	}
+	for (let rename of toRename) {
+		console.log('renaming', rename);
+		await fs.promises.rename(rename, rename.slice(0, 4) + '.jpg');
+	}
+}
+main();

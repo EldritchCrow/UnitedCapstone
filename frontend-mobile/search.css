@@ -15,18 +15,21 @@
 }
 
 .form {
-    display: flex;
     margin-bottom: 10px;
 }
 
-input#dead-simple-search {
-    flex: 3;
-    box-sizing: border-box;
-    width: 100%;
-    padding: 5px;
-    margin-right: 10px;
+.form > * {
+    margin-top: 10px;
 }
 
-.form input#dead-simple-search-submit {
-    flex: 1;
+select {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#search-submit {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
 }

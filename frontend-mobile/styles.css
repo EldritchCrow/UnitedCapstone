@@ -53,6 +53,38 @@ button {
     padding: 5px;
 }
 
+.bag-grid {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.bag-grid .bag {
+    width: 120px;
+    border: 2px solid var(--dusk);
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    text-align: center;
+}
+
+.bag-grid .bag .color {
+    font-size: 0.7em;
+}
+
+.bag-grid .bag .iata {
+    font-size: 0.7em;
+}
+
+.bag-grid .bag .image {
+    width: 120px;
+    height: 120px;
+}
+
 .bag-list .bag {
     display: flex;
     align-items: center;
