@@ -1,4 +1,5 @@
 #bag-video {
+    box-sizing: border-box;
     margin: 0;
     width: 350px;
     height: 220px;
@@ -20,6 +21,11 @@ select {
     width: 100%;
 }
 
+#capture {
+    cursor: pointer;
+    padding: 10px;
+}
+
 progress {
     width: 100%;
 }
@@ -31,4 +37,21 @@ progress {
 
 #cycle {
     float: right;
+}
+
+#video-wrapper {
+    overflow: hidden;
+}
+
+#zoom-range {
+    width: 90%;
+}
+
+#bag-note {
+    box-sizing: border-box;
+    width: 350px;
+    resize: vertical;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 10px;
+    font-size: .75em;
 }
