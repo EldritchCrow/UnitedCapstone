@@ -1,7 +1,7 @@
 openapi: "3.0.1"
 info:
   title: "UnitedWarehouseStorage"
-  version: "2021-04-15T04:08:38Z"
+  version: "2021-04-28T19:02:04Z"
 servers:
 - url: "https://427sweywdc.execute-api.us-east-2.amazonaws.com/{basePath}"
   variables:
@@ -39,7 +39,15 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Empty"
-  /lambda-func:
+  /dead-simple-search:
+    post:
+      responses:
+        "200":
+          description: "200 response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Empty"
     options:
       responses:
         "200":
@@ -54,14 +62,6 @@ paths:
             Access-Control-Allow-Headers:
               schema:
                 type: "string"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Empty"
-    x-amazon-apigateway-any-method:
-      responses:
-        "200":
-          description: "200 response"
           content:
             application/json:
               schema:

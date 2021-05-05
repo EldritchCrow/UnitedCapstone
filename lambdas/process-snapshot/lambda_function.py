@@ -56,6 +56,8 @@ def lambda_handler(event, context):
     body = json.loads(event['body'])
     if 'data:image/png;base64,' in body['snapshot']:
         body['snapshot'] = body['snapshot'][len('data:image/png;base64,'):]
+    if 'data:image/jpeg;base64,' in body['snapshot']:
+        body['snapshot'] = body['snapshot'][len('data:image/jpeg;base64,'):]
     im = Image.open(io.BytesIO(base64.b64decode(body['snapshot']))).resize((360, 240), Image.BILINEAR).convert('RGB')
     im = torch.from_numpy(np.array(im).astype(np.float32)[np.newaxis, :, :, :].transpose([0,3,1,2]))
     _, label = torch.max(model(im), 1)

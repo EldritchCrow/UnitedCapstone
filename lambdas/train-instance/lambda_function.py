@@ -40,6 +40,8 @@ def lambda_handler(event, context):
     model.load_state_dict(torch.load('/tmp/model.pth'))
     if 'data:image/png;base64,' in event['image']:
         event['image'] = event['image'][len('data:image/png;base64,'):]
+    if 'data:image/jpeg;base64,' in event['image']:
+        event['image'] = event['image'][len('data:image/jpeg;base64,'):]
     im = Image.open(io.BytesIO(base64.b64decode(event['image']))).resize((360, 240), Image.BILINEAR).convert('RGB')
     im = torch.from_numpy(np.array(im).astype(np.float32)[np.newaxis, :, :, :].transpose([0,3,1,2]))
     
