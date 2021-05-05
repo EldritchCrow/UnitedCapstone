@@ -4,6 +4,7 @@ import os
 import io
 import base64
 
+# Necessary stage at the cold-start of the Lambda container
 try:
 	import unzip_requirements
 except ImportError:
@@ -15,7 +16,7 @@ import numpy as np
 
 s3 = boto3.resource('s3')
 
-
+# Object that defines the model, so it can be loaded from the .pth file
 class BaggageClassifier(torch.nn.Module):
     def __init__(self):
         super(BaggageClassifier, self).__init__()
@@ -37,9 +38,12 @@ class BaggageClassifier(torch.nn.Module):
 
 
 def lambda_handler(event, context):
+    # Download model file into local storage
     s3.Object('united-warehouse-vision-model', 'vision_model.pth').download_file('/tmp/model.pth')
+    # Create model and load pre-trained version of the model
     model = BaggageClassifier()
     model.load_state_dict(torch.load('/tmp/model.pth'))
+    # Basic error checking for empty POST bodies
     if 'body' not in event or event['body'] == None:
         return {
         'statusCode': 200,
@@ -54,12 +58,17 @@ def lambda_handler(event, context):
         })
     }
     body = json.loads(event['body'])
+    # HTML canvasses add these prefixes, which we do not need
     if 'data:image/png;base64,' in body['snapshot']:
         body['snapshot'] = body['snapshot'][len('data:image/png;base64,'):]
     if 'data:image/jpeg;base64,' in body['snapshot']:
         body['snapshot'] = body['snapshot'][len('data:image/jpeg;base64,'):]
+    # Load the image from the base64 encoded string
+    # Then resize it with some basic interpolation and convert it to the right color space
     im = Image.open(io.BytesIO(base64.b64decode(body['snapshot']))).resize((360, 240), Image.BILINEAR).convert('RGB')
+    # Transform the numpy array into a properly formatted pytorch tensor
     im = torch.from_numpy(np.array(im).astype(np.float32)[np.newaxis, :, :, :].transpose([0,3,1,2]))
+    # Execute the model and return the results
     _, label = torch.max(model(im), 1)
     return {
         'statusCode': 200,
